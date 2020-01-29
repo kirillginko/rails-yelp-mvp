@@ -1,11 +1,19 @@
 <div class = "container">
   <div class="restaurant-card">
     <h1><%= @restaurant.name %></h1>
-    <h3><%= @restaurant.category %> cuisine</h3>
-    <p><%= @restaurant.address %></p>
-    <p><%= @restaurant.phone_number %></p>
+    <p><%="#{@restaurant.category.capitalize}" %> cuisine</p>
+    <p><%= "Address: #{@restaurant.address}" %></p>
+    <p><%= "Phone: #{@restaurant.phone_number}" %></p>
   </div>
-
+<br>
+<h2>Reviews:</h2>
+<ul>
+  <% @restaurant.reviews.each do |review| %>
+  <li><%= review.content %></li>
+  <b><%= "#{review.rating} stars" %></b>
+<% end %>
+</ul>
+<%= button_to "Add a review", new_restaurant_review_path(@restaurant), method: "get" %>
 <hr>
 <%= link_to restaurants_path do %>
   <i class="fa fa-history"></i> Back to list

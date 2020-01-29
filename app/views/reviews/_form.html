@@ -1,5 +1,12 @@
-<%= simple_form_for [@restaurant, @review], :defaults => { :input_html => { :class => "review-input mx-auto" } } do |form| %>
-  <%= form.input :content %>
-  <%= form.input :rating, collection: [*0..5] %>
-  <%= form.submit "Add Review", class: "btn btn-primary" %>
+<%= form_for(@restaurant, @review) do |f| %>
+  <div class="form-group">
+    <%= f.label :content %>
+    <%= f.text_field :name, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :rating %>
+    <%= form.input :rating, collection: [*0..5] %>
+  </div>
+<%= f.submit class: 'btn btn-primary' %>
 <% end %>
