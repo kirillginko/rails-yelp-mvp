@@ -1,12 +1,12 @@
+<div class= "container">
 <%= simple_form_for(@restaurant) do |f| %>
+
   <% if @restaurant.errors.any? %>
-    <div class="errors-container">
       <ul>
         <% @restaurant.errors.full_messages.each do |message| %>
           <li><%= message %></li>
         <% end %>
       </ul>
-    </div>
   <% end %>
 
   <div class="form-inputs">
@@ -19,4 +19,5 @@
   <div class="form-actions">
     <%= f.button :submit %>
   </div>
+</div>
 <% end %>

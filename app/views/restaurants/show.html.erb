@@ -1,9 +1,13 @@
 <div class = "container">
   <div class="restaurant-card">
     <h1><%= @restaurant.name %></h1>
-    <p><%="#{@restaurant.category.capitalize}" %> cuisine</p>
-    <p><%= "Address: #{@restaurant.address}" %></p>
-    <p><%= "Phone: #{@restaurant.phone_number}" %></p>
+    <p>
+    <strong> Cuisine: <%="#{@restaurant.category.capitalize}" %></strong>
+    </p>
+    <p>
+    <strong><%= "Address: #{@restaurant.address}" %></strong>
+    </p>
+    <strong><%= "Phone: #{@restaurant.phone_number}" %></strong>
   </div>
 <br>
 <h2>Reviews:</h2>
@@ -13,6 +17,7 @@
   <b><%= "#{review.rating} stars" %></b>
 <% end %>
 </ul>
+<p>
 <%= button_to "Add a review", new_restaurant_review_path(@restaurant), method: "get" %>
 <hr>
 <%= link_to restaurants_path do %>
